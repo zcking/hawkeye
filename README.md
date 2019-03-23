@@ -1,5 +1,7 @@
 # Hawkeye
 
+[![Build Status](https://travis-ci.com/zcking/hawkeye.svg?branch=master)](https://travis-ci.com/zcking/hawkeye)
+
 Hawkeye is a custom, open-source home security and monitoring solution.
 This solution is powered by the Raspberry Pi, Python, AWS, and Docker.
 
