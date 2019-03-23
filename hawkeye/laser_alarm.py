@@ -43,6 +43,7 @@ def alert():
 def main():
     ldr_pin = int(os.environ.get('LDR_PIN', '17'))
     sensor = LightSensor(ldr_pin, charge_time_limit=0.005, threshold=0.1)
+    time.sleep(3)  # wait a bit for setup (initial capacitor charge)
 
     while True:
         sensor.wait_for_dark()
