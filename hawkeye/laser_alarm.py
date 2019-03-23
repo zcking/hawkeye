@@ -17,6 +17,7 @@ project found here:
 import os
 import signal
 from datetime import datetime
+import time
 
 from gpiozero import LightSensor
 
@@ -38,10 +39,13 @@ def alert():
     utils.alert('perimiter alarm triggered at {}'.format(
         NAME), SERVICE, utils.ALERT_INTRUSION)
 
+    # Wait 5 seconds so as to not send a burst of alerts
+    time.sleep(5)
+
 
 def main():
     ldr_pin = int(os.environ.get('LDR_PIN', '17'))
-    sensor = LightSensor(ldr_pin, charge_time_limit=0.01, threshold=0.2)
+    sensor = LightSensor(ldr_pin, charge_time_limit=0.005, threshold=0.1)
     sensor.when_dark = alert
 
     while True:
