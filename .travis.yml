@@ -12,3 +12,7 @@ deploy:
   script: bash docker_push
   on:
     branch: master
+  
+branches:
+  only:
+  - master
