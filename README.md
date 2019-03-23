@@ -21,15 +21,6 @@ the environment variables with your appropriate settings.
 
 > Note: this configuration does require you have an AWS account and a SNS topic to send alerts to.
 
-Next, build the Docker image using:  
-```
-make build
-```
-Or:
-```
-docker build -t hawkeye .
-```
-
 At this point, you are now ready to run any of the services which make up this security system. For example, to run the laser alarm:
 ```
 docker-compose up laser_alarm
