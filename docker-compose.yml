@@ -7,4 +7,9 @@ services:
     container_name: laser-alarm
     env_file: .env
     restart: always
+    privileged: true
+    cap_add:
+      - SYS_RAWIO
+    devices:
+      - "/dev/mem"
 
