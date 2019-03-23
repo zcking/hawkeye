@@ -4,7 +4,8 @@ import socket
 import boto3
 
 
-SNS = boto3.client('sns')
+REGION = os.environ.get('AWS_REGION', 'us-east-1')
+SNS = boto3.client('sns', region_name=REGION)
 TOPIC_ARN = os.environ['HAWKEYE_SNS_TOPIC']
 
 ALERT_INTRUSION = 'intrusion'

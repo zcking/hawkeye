@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  laser_alarm:
+    image: hawkeye
+    command: python hawkeye/laser_alarm.py
+    container_name: laser-alarm
+    env_file: .env
+    restart: always
+
