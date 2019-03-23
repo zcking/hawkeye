@@ -41,12 +41,11 @@ def alert():
 
 def main():
     ldr_pin = int(os.environ.get('LDR_PIN', '17'))
-    sensor = LightSensor(ldr_pin, charge_time_limit=0.001)
-
+    sensor = LightSensor(ldr_pin, charge_time_limit=0.01, threshold=0.2)
     sensor.when_dark = alert
 
-    # Keep the script running until interrupted (i.e. Ctrl+C)
-    signal.pause()
+    while True:
+        pass
 
 
 if __name__ == '__main__':
