@@ -1,6 +1,14 @@
 services:
-  - docker
+- docker
 
-before_install:
+env:
+  secure: v5NNbPOnZ4Sb+wakSPi9gZCFmql/nqL7YdFzghJ1YUa/JC8qmYPKXsuXNv2POHOzWu3HZsWhj1bym6uzgUsom9FYE0C2Ntxbr61dgln/rbMXKrE4770Ui1WCWwN+7cmqnIfx2VktY2WAIH1gpG2o+pBfzDKvQ7Aa997UpCUdiRcUNlRMBBc9BJ2maMHyXNRmQsV3QM34YvOUGSpVHxlDiNJJNjDQxJOZRRhOf7zF7wWDtv18IbyS1Ou4Glal3WkhfrE2FHGsiMOLySiRHvZkiPstACzsUePRLezQlc5bp4XY4gF2+rE0fBToX1C7MfXDyTO6w/ugT+2lY1YVSsuhvUeUbs3GTpfjGUbwSEafihr5f4ABcKcFNA9hkx4rdQRkcN9Nbpyw+pvw0QalSKCh1vu/V35qaY2ohLFyrHfVVTphONGnLvmem9WPoIozxjzb5azxyH6shb4ezN9Qo7b9IiB2Lf9J0sooiPJ5KH/J2FfiOfhT6x3QLJ8iuPxMGYLTHhbx8/yIRDwGZDJMFm8cTl+l1wg07U0lKN59G6iOJgBv2vgQy39LtLrLy98v6+NxPRtSHJnn1Rgj9Ha1C7edHZnl/kzoBEE5lle2O/1juCI1ireWbg3/4xzAxTv9elyskmqBPUm/8MBeLF3zyk6TMkKHNWDR+kJY2DWIJbD1rdM=
+
+script:
   - docker build -t hawkeye .
 
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
